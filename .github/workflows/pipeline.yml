@@ -96,7 +96,6 @@ jobs:
       with:
         name: jar-artifact
         path: ${{ github.workspace }}/target/*.jar
-        retention-days: 1
         
   docker:
     name: Docker
