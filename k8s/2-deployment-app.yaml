@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+  labels:
+    app: app-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels: 
+      app: app-pod
+  template:
+    metadata:
+      name: app-pod
+      labels:
+        app: app-pod
+    spec:
+      containers:
+        - name: producao-app
+          image: thiagobsn/producao-app
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-app
+                  key: SPRING_DATASOURCE_URL
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: secret-db
+                  key: username
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: secret-db
+                  key: password
+            - name: SPRING_JPA_SHOW
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-app
+                  key: SPRING_JPA_SHOW
+            - name: SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-app
+                  key: SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL
+          livenessProbe:
+            httpGet:
+              path: /producao-app/actuator/health/liveness
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 3
+            failureThreshold: 3
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: 1000m
+            requests:
+              cpu: 500m
+              memory: 256Mi
+      

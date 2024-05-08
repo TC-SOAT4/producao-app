@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap-app
+data:
+  SPRING_DATASOURCE_URL: jdbc:mariadb://rds-fiap-tech-challenge.cd8qu848glwi.us-east-1.rds.amazonaws.com/lanchonetedb
+  SPRING_DATASOURCE_USERNAME: lanchoneteuser
+  SPRING_DATASOURCE_PASSWORD: lanchonete
+  SPRING_JPA_SHOW: "true"
+  SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL: "true"
+  
