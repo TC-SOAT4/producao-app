@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app-deployment
+  name: app-producao-deployment
   labels:
-    app: app-deployment
+    app: app-producao-deployment
 spec:
   replicas: 2
   selector:
     matchLabels: 
-      app: app-pod
+      app: app-producao-pod
   template:
     metadata:
-      name: app-pod
+      name: app-producao-pod
       labels:
-        app: app-pod
+        app: app-producao-pod
     spec:
       containers:
         - name: producao-app
@@ -46,11 +46,36 @@ spec:
                 configMapKeyRef:
                   name: configmap-app
                   key: SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL
+            - name: URI_API_PEDIDO_ATUALIZAR_STATUS
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-app
+                  key: URI_API_PEDIDO_ATUALIZAR_STATUS
+            - name: AWS_SQS_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-app
+                  key: AWS_SQS_NAME
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-app
+                  key: AWS_ACCESS_KEY_ID
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-app
+                  key: AWS_SECRET_ACCESS_KEY
+            - name: AWS_SESSION_TOKEN
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-app
+                  key: AWS_SESSION_TOKEN
           livenessProbe:
             httpGet:
-              path: /producao-app/actuator/health/liveness
+              path: /producao-app/actuator/health
               port: 8080
-            initialDelaySeconds: 30
+            initialDelaySeconds: 80
             periodSeconds: 3
             failureThreshold: 3
           resources:
@@ -60,4 +85,3 @@ spec:
             requests:
               cpu: 500m
               memory: 256Mi
-      
