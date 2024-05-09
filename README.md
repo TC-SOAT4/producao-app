@@ -47,50 +47,6 @@ $ docker-compose up --build
 
 ***Banco de dados***
 
-- A base de dados já possui alguns produtos e clientes cadastrados
-
-##### Categorias de Produtos
-
-| Código  |  Nome |
-| ------------ | ------------ |
-| 1  | Lanche  |
-| 2  | Acompanhamento  |
-| 3  | Bebida  |
-| 4  | Sobremesa  |
-
-##### Status do Produtos
-
-| Código  |  Descrição |
-| ------------ | ------------ |
-| 1  | Recebido  |
-| 2  | Em preparação  |
-| 3  | Pronto  |
-| 4  | Finalizado  |
-
-
-##### Clientes
-
-| Código  |  Nome | CPF |
-| ------------ | ------------ |  ------------ |
-| 1  | Home Simpson  | 12345678901 |
-| 2  | Bart Simpson  | 12345678920 |
-
-##### Produtos
-
-| Código  |  Descrição | Categoria |
-| ------------ | ------------ | ------------ |
-| 1  | Cheddar McMelt  |  Lanche  |
-| 2  | McChicken  |  Lanche  |
-| 3  | Big Mac  |  Lanche  |
-| 4  | Batata Frita Pequena  | Acompanhamento  |
-| 5  | Batata Frita Grande  | Acompanhamento  |
-| 6  | Chicken McNuggets  | Acompanhamento  |
-| 7  | Refrigerante pequeno  | Bebida  |
-| 8  | Refrigerante Grande  | Bebida  |
-| 9  | Garrafa Água 200ml  | Bebida  |
-| 10  | Torta de Maçã  | Sobremesa  |
-| 11 | Casquinha Mista  | Sobremesa  |
-
 ------------
 
 **Kubernetes**
@@ -108,18 +64,6 @@ k8s
 	- 	HorizontalPodAutoscaler
 
 ------------
-
-**Função Lambda para autenticação**
-
-```
-curl --request GET \
-  --url 'https://g7upbosl28.execute-api.us-east-1.amazonaws.com/Prod/auth/?password=<password>&username=<cpf>' \
-  --header 'User-Agent:: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
-```
-
-**Cadastro de usuário no Cognito**
-
-[SignIn/SignUp - Cognito](https://lanchonete.auth.us-east-1.amazoncognito.com/login?client_id=7dbvinjad7nqfv31ah9thbkgu4&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=https%3A%2F%2Fexample.com%2F "SignIn/SignUp - Cognito")
 
 
 
