@@ -2,6 +2,7 @@ package com.fiap.producaoapp.conf;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
 
 import com.fiap.producaoapp.application.pedido.clients.PedidoClient;
 import com.fiap.producaoapp.application.producao.gateways.PedidoProducaoGateway;
@@ -31,8 +32,8 @@ public class ProducaoConfig {
     }
 
     @Bean
-    PedidoClient pedidoClient() {
-        return new PedidoRestClient();
+    PedidoClient pedidoClient(RestTemplate restTemplate) {
+        return new PedidoRestClient(restTemplate);
     }
 
     @Bean

@@ -8,8 +8,10 @@ public interface PedidoProducaoGateway {
 
     public List<PedidoProducao> listarTodos();
 
-    public void remover(Integer id);
+    public void remover(Integer idPedidoProducao);
 
     public void salvar(PedidoProducao pedidoProducao);
+
+    public PedidoProducao buscar(Integer idPedidoProducao);
 
 }

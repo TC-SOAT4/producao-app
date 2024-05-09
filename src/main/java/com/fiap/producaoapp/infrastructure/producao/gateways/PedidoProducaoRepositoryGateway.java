@@ -37,9 +37,9 @@ public class PedidoProducaoRepositoryGateway implements PedidoProducaoGateway {
     }
 
     @Override
-    public void remover(Integer id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'remover'");
+    public void remover(Integer idPedidoProducao) {
+        var pedidoProducaoEntity = pedidoProducaoRepository.findById(idPedidoProducao).orElseThrow();
+        pedidoProducaoRepository.delete(pedidoProducaoEntity);
     }
 
     @Override
@@ -58,6 +58,22 @@ public class PedidoProducaoRepositoryGateway implements PedidoProducaoGateway {
         pedidoProducaoEntity.setPedidoProducaoNosItens();
 
         pedidoProducaoRepository.save(pedidoProducaoEntity);
+    }
+
+    @Override
+    public PedidoProducao buscar(Integer idPedidoProducao) {
+        var pedidoProducaoEntity = pedidoProducaoRepository.findById(idPedidoProducao).orElseThrow();
+
+        var itens = pedidoProducaoEntity.getItens().stream()
+                .map(item -> ItemProducao.builder().nome(item.getNome()).quantidade(item.getQuantidade()).build())
+                .toList();
+
+        return PedidoProducao.builder()
+                .idPedidoProducao(pedidoProducaoEntity.getIdPedidoProducao())
+                .pedidoId(pedidoProducaoEntity.getPedidoId())
+                .data(pedidoProducaoEntity.getData())
+                .itens(itens)
+                .build();
     }
 
 }

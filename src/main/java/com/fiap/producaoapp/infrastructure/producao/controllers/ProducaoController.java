@@ -14,6 +14,7 @@ import com.fiap.producaoapp.domain.producao.entity.PedidoProducao;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
 
 @Tag(name = "Produção")
@@ -26,9 +27,10 @@ public class ProducaoController {
 
     private final ListarPedidoParaProducao listarPedidoParaProducao;
 
-    @PostMapping("/finalizar")
+    @PostMapping("/{idPedidoProducao}/finalizar")
     @Operation(summary = "Fianlizar produção de pedido", description = "Fianlizar produção de pedido e atualizar status do pedido")
-    public ResponseEntity<?> finalizar() {
+    public ResponseEntity<Void> finalizar(@PathParam("idPedidoProducao") Integer idPedidoProducao) {
+        finalizarProducao.finalizar(idPedidoProducao);
         return ResponseEntity.ok().build();
     }
 
