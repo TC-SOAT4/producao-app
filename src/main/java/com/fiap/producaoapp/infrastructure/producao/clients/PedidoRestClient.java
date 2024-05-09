@@ -1,5 +1,6 @@
 package com.fiap.producaoapp.infrastructure.producao.clients;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -11,7 +12,8 @@ import com.fiap.producaoapp.application.pedido.clients.PedidoClient;
 
 public class PedidoRestClient implements PedidoClient {
 
-    public static final String URI_PEDIDO_ATUALIZAR_STATUS = "http://localhost:8080/pedido-app/api/pedidos";
+    @Value("${uri.api.pedido.atualizar.status}")
+    private String URI_PEDIDO_ATUALIZAR_STATUS;
 
     private final RestTemplate restTemplate;
 
