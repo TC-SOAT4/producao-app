@@ -65,17 +65,5 @@ k8s
 
 ------------
 
-**Função Lambda para autenticação**
-
-```
-curl --request GET \
-  --url 'https://g7upbosl28.execute-api.us-east-1.amazonaws.com/Prod/auth/?password=<password>&username=<cpf>' \
-  --header 'User-Agent:: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
-```
-
-**Cadastro de usuário no Cognito**
-
-[SignIn/SignUp - Cognito](https://lanchonete.auth.us-east-1.amazoncognito.com/login?client_id=7dbvinjad7nqfv31ah9thbkgu4&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=https%3A%2F%2Fexample.com%2F "SignIn/SignUp - Cognito")
-
 
 
