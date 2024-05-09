@@ -11,7 +11,7 @@ services:
       - mariadb:/var/lib/mysql
     environment:
       - MARIADB_ROOT_PASSWORD=root
-      - MARIADB_DATABASE=lanchonetedb
+      - MARIADB_DATABASE=producaoapp
       - MARIADB_USER=mariadb
       - MARIADB_PASSWORD=root
 
@@ -26,7 +26,7 @@ services:
     links:
       - database
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mariadb://database:3306/lanchonetedb
+      - SPRING_DATASOURCE_URL=jdbc:mariadb://database:3306/producaoapp
       - SPRING_DATASOURCE_PASSWORD=root
       - SPRING_DATASOURCE_USERNAME=mariadb
       - SPRING_JPA_SHOW-SQL=true
