@@ -1,13 +1,21 @@
 package com.fiap.producaoapp.application.producao.usecases;
 
-import com.fiap.producaoapp.application.producao.gateways.ProducaoGateway;
+
+import java.util.List;
+
+import com.fiap.producaoapp.application.producao.gateways.PedidoProducaoGateway;
+import com.fiap.producaoapp.domain.producao.entity.PedidoProducao;
 
 public class ListarPedidoParaProducao {
 
-     private final ProducaoGateway producaoGateway;
+     private final PedidoProducaoGateway pedidoProducaoGateway;
 
-     public ListarPedidoParaProducao(ProducaoGateway producaoGateway) {
-        this.producaoGateway = producaoGateway;
+     public ListarPedidoParaProducao(PedidoProducaoGateway pedidoProducaoGateway) {
+        this.pedidoProducaoGateway = pedidoProducaoGateway;
+    }
+
+    public List<PedidoProducao> listar() {
+        return pedidoProducaoGateway.listarTodos();
     }
 
 }
