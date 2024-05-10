@@ -9,8 +9,8 @@ spec:
   type: LoadBalancer
   ports:
     - port: 80
-      targetPort: 8080
-      nodePort: 30080
+      targetPort: 8081
+      nodePort: 30081
 
 # Alterar o type para LoadBalancer para rodar no eks
 # Alterar o type para NodePort para rodar no locahost

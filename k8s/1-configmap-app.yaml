@@ -7,7 +7,7 @@ data:
   SPRING_JPA_SHOW: "true"
   SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL: "true"
   AWS_SQS_URI: https://sqs.us-east-1.amazonaws.com/797459365217/teste.fifo
-  URI_API_PEDIDO_ATUALIZAR_STATUS: https://svc-app/http://localhost:8080/pedido-app/api/pedidos
+  URI_API_PEDIDO_ATUALIZAR_STATUS: http://svc-pedido-app/pedido-app/api/pedidos
   AWS_SQS_NAME: teste.fifo
   AWS_ACCESS_KEY_ID: ASIA3TLCIHVQ6X5VZOGB
   AWS_SECRET_ACCESS_KEY: DYImPEUzIDYJN3fRIXumIjo7YWtLOU4Hz2650OIg

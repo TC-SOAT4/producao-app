@@ -5,7 +5,7 @@ metadata:
   labels:
     app: app-producao-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels: 
       app: app-producao-pod
@@ -19,12 +19,12 @@ spec:
         - name: producao-app
           image: thiagobsn/producao-app
           ports:
-            - containerPort: 8080
+            - containerPort: 8081
           env:
             - name: SPRING_DATASOURCE_URL
               valueFrom:
                 configMapKeyRef:
-                  name: configmap-app
+                  name: configmap-producao-app
                   key: SPRING_DATASOURCE_URL
             - name: SPRING_DATASOURCE_USERNAME
               valueFrom:
@@ -39,42 +39,42 @@ spec:
             - name: SPRING_JPA_SHOW
               valueFrom:
                 configMapKeyRef:
-                  name: configmap-app
+                  name: configmap-producao-app
                   key: SPRING_JPA_SHOW
             - name: SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL
               valueFrom:
                 configMapKeyRef:
-                  name: configmap-app
+                  name: configmap-producao-app
                   key: SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL
             - name: URI_API_PEDIDO_ATUALIZAR_STATUS
               valueFrom:
                 configMapKeyRef:
-                  name: configmap-app
+                  name: configmap-producao-app
                   key: URI_API_PEDIDO_ATUALIZAR_STATUS
             - name: AWS_SQS_NAME
               valueFrom:
                 configMapKeyRef:
-                  name: configmap-app
+                  name: configmap-producao-app
                   key: AWS_SQS_NAME
             - name: AWS_ACCESS_KEY_ID
               valueFrom:
                 configMapKeyRef:
-                  name: configmap-app
+                  name: configmap-producao-app
                   key: AWS_ACCESS_KEY_ID
             - name: AWS_SECRET_ACCESS_KEY
               valueFrom:
                 configMapKeyRef:
-                  name: configmap-app
+                  name: configmap-producao-app
                   key: AWS_SECRET_ACCESS_KEY
             - name: AWS_SESSION_TOKEN
               valueFrom:
                 configMapKeyRef:
-                  name: configmap-app
+                  name: configmap-producao-app
                   key: AWS_SESSION_TOKEN
           livenessProbe:
             httpGet:
               path: /producao-app/actuator/health
-              port: 8080
+              port: 8081
             initialDelaySeconds: 80
             periodSeconds: 3
             failureThreshold: 3
