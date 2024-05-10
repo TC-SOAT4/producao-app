@@ -19,7 +19,7 @@ spec:
         - name: producao-app
           image: thiagobsn/producao-app
           ports:
-            - containerPort: 8081
+            - containerPort: 8080
           env:
             - name: SPRING_DATASOURCE_URL
               valueFrom:
@@ -74,7 +74,7 @@ spec:
           livenessProbe:
             httpGet:
               path: /producao-app/actuator/health
-              port: 8081
+              port: 8080
             initialDelaySeconds: 80
             periodSeconds: 3
             failureThreshold: 3
