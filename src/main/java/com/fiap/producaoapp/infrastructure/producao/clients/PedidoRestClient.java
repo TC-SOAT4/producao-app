@@ -13,7 +13,7 @@ import com.fiap.producaoapp.application.pedido.clients.PedidoClient;
 public class PedidoRestClient implements PedidoClient {
 
     @Value("${uri.api.pedido.atualizar.status}")
-    private String URI_PEDIDO_ATUALIZAR_STATUS;
+    private String uriPedidoAtualizarStatus;
 
     private final RestTemplate restTemplate;
 
@@ -30,7 +30,7 @@ public class PedidoRestClient implements PedidoClient {
         HttpEntity<?> entity = new HttpEntity<>(headers);
 
         String urlTemplate = UriComponentsBuilder
-                .fromHttpUrl(URI_PEDIDO_ATUALIZAR_STATUS.concat("/{idPedidoProducao}"))
+                .fromHttpUrl(uriPedidoAtualizarStatus.concat("/{idPedidoProducao}"))
                 .queryParam("novoStatus", statusPedido)
                 .encode()
                 .toUriString();

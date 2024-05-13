@@ -2,6 +2,7 @@ package com.fiap.producaoapp.infrastructure.producao.gateways;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -74,9 +75,13 @@ public class PedidoProducaoRepositoryGatewayTest {
         var pedido2 = PedidoProducao.builder().pedidoId(1).data(LocalDateTime.now()).itens(List.of(itemB, itemC)).build();
         var pedido3 = PedidoProducao.builder().pedidoId(1).data(LocalDateTime.now()).itens(List.of(itemD, itemE)).build();
 
-        pedidoProducaoGateway.salvar(pedido1);
-        pedidoProducaoGateway.salvar(pedido2);
-        pedidoProducaoGateway.salvar(pedido3);
+        pedido1 = pedidoProducaoGateway.salvar(pedido1);
+        pedido2 = pedidoProducaoGateway.salvar(pedido2);
+        pedido3 = pedidoProducaoGateway.salvar(pedido3);
+
+        assertNotNull(pedido1.getIdPedidoProducao());
+        assertNotNull(pedido2.getIdPedidoProducao());
+        assertNotNull(pedido3.getIdPedidoProducao());
 
     }
 
