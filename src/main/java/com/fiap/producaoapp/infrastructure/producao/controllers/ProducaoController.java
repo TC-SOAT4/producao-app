@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +15,6 @@ import com.fiap.producaoapp.domain.producao.entity.PedidoProducao;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
 
 @Tag(name = "Produção")
@@ -29,7 +29,7 @@ public class ProducaoController {
 
     @PostMapping("/{idPedidoProducao}/finalizar")
     @Operation(summary = "Fianlizar produção de pedido", description = "Fianlizar produção de pedido e atualizar status do pedido")
-    public ResponseEntity<Void> finalizar(@PathParam("idPedidoProducao") Integer idPedidoProducao) {
+    public ResponseEntity<Void> finalizar(@PathVariable("idPedidoProducao") Integer idPedidoProducao) {
         finalizarProducao.finalizar(idPedidoProducao);
         return ResponseEntity.ok().build();
     }

@@ -62,7 +62,7 @@ public class PedidoProducaoRepositoryGatewayTest {
     }
 
     @Test
-    private void testSalvar() {
+    public void testSalvar() {
 
         var itemA = ItemProducao.builder().nome("Produto A").quantidade(1).build();
         var itemB = ItemProducao.builder().nome("Produto B").quantidade(2).build();
