@@ -37,9 +37,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      AWS_ACCESS_KEY_ID: US_EAST-1
-      AWS_SECRET_ACCESS_KEY: asdsd12312312dsada
-      AWS_SESSION_TOKEN: asdased12312312sd1233213
+      AWS_REGION: us-east-1
 
     steps:
       - uses: actions/checkout@v2
