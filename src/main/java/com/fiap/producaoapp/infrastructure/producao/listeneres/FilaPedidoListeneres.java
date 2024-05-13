@@ -2,6 +2,7 @@ package com.fiap.producaoapp.infrastructure.producao.listeneres;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -13,7 +14,7 @@ import com.fiap.producaoapp.infrastructure.producao.listeneres.dto.ResumoPrepara
 import io.awspring.cloud.sqs.annotation.SqsListener;
 import lombok.RequiredArgsConstructor;
 
-
+@ConditionalOnProperty(name = "receber.pedido.producao.enabled", havingValue = "true", matchIfMissing = false)
 @RequiredArgsConstructor
 @Component
 public class FilaPedidoListeneres {

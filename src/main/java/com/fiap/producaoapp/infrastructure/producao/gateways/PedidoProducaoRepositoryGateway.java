@@ -43,7 +43,7 @@ public class PedidoProducaoRepositoryGateway implements PedidoProducaoGateway {
     }
 
     @Override
-    public void salvar(PedidoProducao pedidoProducao) {
+    public PedidoProducao salvar(PedidoProducao pedidoProducao) {
 
         var itensProducaoEntity = pedidoProducao.getItens().stream()
                 .map(item -> ItemProducaoEntity.builder().nome(item.getNome()).quantidade(item.getQuantidade()).build())
@@ -57,7 +57,18 @@ public class PedidoProducaoRepositoryGateway implements PedidoProducaoGateway {
 
         pedidoProducaoEntity.setPedidoProducaoNosItens();
 
-        pedidoProducaoRepository.save(pedidoProducaoEntity);
+        pedidoProducaoEntity = pedidoProducaoRepository.save(pedidoProducaoEntity);
+
+        var itens = pedidoProducaoEntity.getItens().stream()
+                .map(item -> ItemProducao.builder().nome(item.getNome()).quantidade(item.getQuantidade()).build())
+                .toList();
+
+        return PedidoProducao.builder()
+                .idPedidoProducao(pedidoProducaoEntity.getIdPedidoProducao())
+                .pedidoId(pedidoProducaoEntity.getPedidoId())
+                .data(pedidoProducaoEntity.getData())
+                .itens(itens)
+                .build();
     }
 
     @Override

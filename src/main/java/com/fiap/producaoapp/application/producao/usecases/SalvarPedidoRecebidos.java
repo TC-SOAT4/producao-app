@@ -13,7 +13,7 @@ public class SalvarPedidoRecebidos {
         this.pedidoProducaoGateway = pedidoProducaoGateway;
     }
 
-    public void salvar(ResumoPreparacaoPedidoDTO resumoPedido) {
+    public PedidoProducao salvar(ResumoPreparacaoPedidoDTO resumoPedido) {
         var itensProducao = resumoPedido.getItens().stream().map(item -> ItemProducao.builder().nome(item.getNome()).quantidade(item.getQuantidade()).build()).toList();
        
         var pedidoProducao = PedidoProducao.builder()
@@ -21,7 +21,7 @@ public class SalvarPedidoRecebidos {
         .itens(itensProducao)
         .build();
 
-        pedidoProducaoGateway.salvar(pedidoProducao);
+        return pedidoProducaoGateway.salvar(pedidoProducao);
     }
 
 }
