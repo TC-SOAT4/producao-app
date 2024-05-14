@@ -19,7 +19,7 @@ import com.fiap.producaoapp.infrastructure.producao.listeneres.dto.ResumoPrepara
 @AutoConfigureTestDatabase
 @ActiveProfiles("test")
 @Transactional
-public class SalvarPedidoRecebidosTest {
+class SalvarPedidoRecebidosTest {
 
     @Autowired
     private SalvarPedidoRecebidos salvarPedidoRecebidos;
@@ -29,13 +29,16 @@ public class SalvarPedidoRecebidosTest {
     @Sql(scripts = { "/clean.sql" }, executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
     void testSalvar() {
 
-        var itemA = ResumoPreparacaoItemDTO.builder().nome("Produto A").quantidade(1).build();
-        var itemB = ResumoPreparacaoItemDTO.builder().nome("Produto B").quantidade(2).build();
+        var itemA = new ResumoPreparacaoItemDTO();
+        itemA.setNome("Produto A");
+        itemA.setQuantidade(1);
 
-        var resumoPedido = ResumoPreparacaoPedidoDTO.builder()
-                .idPedido(117)
-                .itens(List.of(itemA, itemB))
-                .build();
+        var itemB = new ResumoPreparacaoItemDTO();
+        itemB.setNome("Produto  B");
+        itemB.setQuantidade(2);
+
+        var resumoPedido = new ResumoPreparacaoPedidoDTO();
+        resumoPedido.setItens(List.of(itemA, itemB));
 
         var pedidoProducao = salvarPedidoRecebidos.salvar(resumoPedido);
 

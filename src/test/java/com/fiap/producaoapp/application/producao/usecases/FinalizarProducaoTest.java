@@ -22,7 +22,7 @@ import com.fiap.producaoapp.application.producao.gateways.PedidoProducaoGateway;
 @AutoConfigureTestDatabase
 @ActiveProfiles("test")
 @Transactional
-public class FinalizarProducaoTest {
+class FinalizarProducaoTest {
 
     @MockBean
     private PedidoClient pedidoClient;

@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 @AutoConfigureTestDatabase
 @ActiveProfiles("test")
 @Transactional
-public class ListarPedidoParaProducaoTest {
+class ListarPedidoParaProducaoTest {
 
     @Autowired
     private ListarPedidoParaProducao listarPedidoParaProducao;

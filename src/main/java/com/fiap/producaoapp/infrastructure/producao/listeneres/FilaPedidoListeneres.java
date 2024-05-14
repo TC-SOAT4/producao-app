@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fiap.producaoapp.application.producao.usecases.SalvarPedidoRecebidos;
 import com.fiap.producaoapp.infrastructure.producao.listeneres.dto.ResumoPreparacaoPedidoDTO;
@@ -23,11 +22,12 @@ public class FilaPedidoListeneres {
 
     private final SalvarPedidoRecebidos salvarPedidoRecebidos;
 
-   @SqsListener("${aws.sqs.name}")
-    public void receiveMessage(String json ) throws JsonMappingException, JsonProcessingException {
+    @SqsListener("${aws.sqs.name}")
+    public void receiveMessage(String json) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
-        ResumoPreparacaoPedidoDTO resumoPreparacaoPedidoDTO = objectMapper.readValue(json, ResumoPreparacaoPedidoDTO.class);
-        logger.info("Recebido: " + resumoPreparacaoPedidoDTO.toString());
+        ResumoPreparacaoPedidoDTO resumoPreparacaoPedidoDTO = objectMapper.readValue(json,
+                ResumoPreparacaoPedidoDTO.class);
+        logger.info("Recebido: {}", resumoPreparacaoPedidoDTO);
         salvarPedidoRecebidos.salvar(resumoPreparacaoPedidoDTO);
     }
 

@@ -24,7 +24,7 @@ import com.fiap.producaoapp.domain.producao.entity.PedidoProducao;
 @ActiveProfiles("test")
 @Transactional
 @Sql(scripts = {"/clean.sql"}, executionPhase = Sql.ExecutionPhase.BEFORE_TEST_CLASS)
-public class PedidoProducaoRepositoryGatewayTest {
+class PedidoProducaoRepositoryGatewayTest {
 
     @Autowired
     private PedidoProducaoGateway pedidoProducaoGateway;
@@ -62,7 +62,7 @@ public class PedidoProducaoRepositoryGatewayTest {
     }
 
     @Test
-    public void testSalvar() {
+    void testSalvar() {
 
         var itemA = ItemProducao.builder().nome("Produto A").quantidade(1).build();
         var itemB = ItemProducao.builder().nome("Produto B").quantidade(2).build();

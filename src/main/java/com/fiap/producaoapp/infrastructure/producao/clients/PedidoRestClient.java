@@ -9,6 +9,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.fiap.producaoapp.application.pedido.clients.PedidoClient;
+import com.fiap.producaoapp.exceptions.AtualizarStatusException;
 
 public class PedidoRestClient implements PedidoClient {
 
@@ -41,7 +42,7 @@ public class PedidoRestClient implements PedidoClient {
         if (response.getStatusCode().is2xxSuccessful())
             return;
 
-        throw new RuntimeException("Não foi possivel realizar a tentiva de pagamento");
+        throw new AtualizarStatusException("Não foi possivel realizar a tentiva de pagamento");
     }
 
 }
