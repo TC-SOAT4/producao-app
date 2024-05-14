@@ -22,7 +22,7 @@ public class ProducaoConfig {
     }
 
     @Bean
-    ListarPedidoParaProducao ListarPedidoParaProducao(PedidoProducaoGateway pedidoProducaoGateway) {
+    ListarPedidoParaProducao listarPedidoParaProducao(PedidoProducaoGateway pedidoProducaoGateway) {
         return new ListarPedidoParaProducao(pedidoProducaoGateway);
     }
 
