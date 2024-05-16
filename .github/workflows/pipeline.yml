@@ -17,8 +17,8 @@ jobs:
       contents: read
       packages: write
 
-      env:
-        AWS_REGION: us-east-1
+     env:
+       AWS_REGION: us-east-1
 
      steps:
      - uses: actions/checkout@v3
