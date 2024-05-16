@@ -69,7 +69,7 @@ class FilaPedidoListeneresTest {
     }
 
     @Test
-    void testReceiveMessage_jsonInvalido() throws JsonProcessingException {
+    void testReceiveMessage_jsonInvalido() {
         assertThrows(JsonProcessingException.class, () -> filaPedidoListeneres.receiveMessage(jsonInvalidoMsg));
         verify(salvarPedidoRecebidos, times(0)).salvar(any(ResumoPreparacaoPedidoDTO.class));
     }
