@@ -30,7 +30,7 @@ jobs:
   #    - name: Test
   #      run: mvn --batch-mode -Dmaven.test.failure.ignore=false test
 
-  cucumber:
+  test:
     name: Cucumber test
     runs-on: ubuntu-latest
     permissions:
