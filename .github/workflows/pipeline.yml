@@ -10,27 +10,45 @@ on:
 
 jobs:
 
-  test:
-     name: Test/Cucumber test
-     runs-on: ubuntu-latest
-     permissions:
+  # test:
+  #    name: Test
+  #    runs-on: ubuntu-latest
+  #    permissions:
+  #     contents: read
+  #     packages: write
+
+  #    steps:
+  #    - uses: actions/checkout@v3
+  #    - name: Set up JDK 17
+  #      uses: actions/setup-java@v3
+  #      with:
+  #        java-version: '17'
+  #        distribution: 'temurin'
+  #        server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
+  #        settings-path: ${{ github.workspace }} # location for the settings.xml file
+
+  #    - name: Test
+  #      run: mvn --batch-mode -Dmaven.test.failure.ignore=false test
+
+  cucumber:
+    name: Cucumber test
+    runs-on: ubuntu-latest
+    permissions:
       contents: read
       packages: write
 
-     steps:
-     - uses: actions/checkout@v3
-     - name: Set up JDK 17
-       uses: actions/setup-java@v3
-       with:
-         java-version: '17'
-         distribution: 'temurin'
-         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
-         settings-path: ${{ github.workspace }} # location for the settings.xml file
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
+        settings-path: ${{ github.workspace }} # location for the settings.xml file
 
-     - name: Test
-       run: mvn --batch-mode -Dmaven.test.failure.ignore=false test
-     - name: Cucumber test
-       run: mvn --batch-mode -Dmaven.test.failure.ignore=false clean test -Psystem-test
+    - name: Cucumber test
+      run: mvn --batch-mode -Dmaven.test.failure.ignore=false test -Psystem-test
 
   sonarcloud:
   
