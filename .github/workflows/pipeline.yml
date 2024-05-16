@@ -56,7 +56,7 @@ jobs:
   sonarcloud:
   
     name: SonarCloud
-    needs: test, cucumber
+    needs: [test, cucumber]
     runs-on: ubuntu-latest
 
     env:
