@@ -178,6 +178,24 @@
 				</configuration>
 			</plugin>
 			<plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.1.2</version>
+                        <configuration>
+                            <includes combine.self="override">
+                                <include>**/*Test.java</include>
+                            </includes>
+                            <excludes combine.self="override">
+                                <exclude>**/bdd/**</exclude> <!-- Excluir o pacote bdd -->
+                            </excludes>
+                            <properties>
+                                <configurationParameters>
+                                    cucumber.junit-platform.naming-strategy=long
+                                </configurationParameters>
+                            </properties>
+                        </configuration>
+                    </plugin>
+			<plugin>
 				<groupId>org.sonarsource.scanner.maven</groupId>
 				<artifactId>sonar-maven-plugin</artifactId>
 				<version>3.10.0.2594</version>
