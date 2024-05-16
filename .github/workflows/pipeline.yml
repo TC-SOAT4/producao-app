@@ -30,7 +30,7 @@ jobs:
      - name: Test
        run: mvn --batch-mode -Dmaven.test.failure.ignore=false test
      - name: Cucumber test
-       run: mvn --batch-mode -Dmaven.test.failure.ignore=false test -P system-test
+       run: mvn --batch-mode -Dmaven.test.failure.ignore=false clean test -P system-test
 
   sonarcloud:
   
