@@ -11,7 +11,7 @@ on:
 jobs:
 
   test:
-     name: Test and Cucumber test
+     name: Test/Cucumber test
      runs-on: ubuntu-latest
      permissions:
       contents: read
@@ -30,7 +30,7 @@ jobs:
      - name: Test
        run: mvn --batch-mode -Dmaven.test.failure.ignore=false test
      - name: Cucumber test
-       run: mvn --batch-mode -Dmaven.test.failure.ignore=false clean test -P system-test
+       run: mvn --batch-mode -Dmaven.test.failure.ignore=false clean test -Psystem-test
 
   sonarcloud:
   
