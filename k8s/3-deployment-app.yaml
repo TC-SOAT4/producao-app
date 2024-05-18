@@ -46,6 +46,11 @@ spec:
                 configMapKeyRef:
                   name: configmap-producao-app
                   key: SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL
+            - name: RECEBER_PEDIDO_PRODUCAO_ENABLED
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-producao-app
+                  key: RECEBER_PEDIDO_PRODUCAO_ENABLED
             - name: URI_API_PEDIDO_ATUALIZAR_STATUS
               valueFrom:
                 configMapKeyRef:
