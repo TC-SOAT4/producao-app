@@ -196,6 +196,6 @@ jobs:
       run: |
          kubectl apply -f "k8s/1-configmap-app.yaml" && \
          kubectl apply -f "k8s/3-deployment-app.yaml" && \
-         kubectl apply -f "k8s/3-svc-app.yaml"
+         kubectl apply -f "k8s/4-svc-app.yaml"
 
 
