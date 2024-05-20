@@ -1,0 +1,108 @@
+{
+  "info": {
+    "name": "Tech Challenge",
+    "_postman_id": "dbb2d394-492b-4150-aff1-8084dbeb911a",
+    "description": "Trabalho final FIAP/Alura",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Produção",
+      "description": "",
+      "item": [
+        {
+          "id": "75ffedb2-bffb-42a8-956d-f8d5ff07b327",
+          "name": "finalizar",
+          "request": {
+            "url": {
+              "protocol": "http",
+              "host": "ab7d59acf6470481dac365713d4ea9e8-1008832294.us-east-1.elb.amazonaws.com",
+              "path": [
+                "producao-app",
+                "api/producoes/:idPedidoProducao/finalizar"
+              ],
+              "variable": [
+                {
+                  "id": "idPedidoProducao",
+                  "key": "idPedidoProducao",
+                  "value": "146",
+                  "type": "string",
+                  "description": ""
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*",
+                "disabled": false
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "disabled": false
+            },
+            "description": "Fianlizar produção de pedido e atualizar status do pedido"
+          },
+          "response": [
+            {
+              "header": [],
+              "status": "OK",
+              "code": 200,
+              "name": "Response_200",
+              "id": "2a16c9fb-83d1-479c-9681-fe21f268bd2b"
+            }
+          ]
+        },
+        {
+          "id": "2e1856a6-2dbc-413d-89b8-b6ba55bbe8fd",
+          "name": "listarPedidosParaProducao",
+          "request": {
+            "url": {
+              "protocol": "http",
+              "host": "ab7d59acf6470481dac365713d4ea9e8-1008832294.us-east-1.elb.amazonaws.com",
+              "path": [
+                "producao-app",
+                "api/producoes"
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*",
+                "disabled": false
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "disabled": false
+            },
+            "description": "Lista pedidos em produção"
+          },
+          "response": [
+            {
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "disabled": false
+                }
+              ],
+              "body": "[\r\n  {\r\n    \"idPedidoProducao\": 146,\r\n    \"pedidoId\": 103,\r\n    \"itens\": [\r\n      {\r\n        \"idItemProducao\": 82,\r\n        \"nome\": \"nome29\",\r\n        \"quantidade\": 204\r\n      }\r\n    ],\r\n    \"data\": \"2024-05-24T01:13:18.5245275Z\"\r\n  }\r\n]",
+              "status": "OK",
+              "code": 200,
+              "name": "Response_200",
+              "id": "96c573a2-ba2f-4351-86fc-65a1b2db42d5"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [],
+  "auth": {
+    "type": "noauth"
+  }
+}
