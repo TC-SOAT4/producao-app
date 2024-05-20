@@ -5,8 +5,8 @@ metadata:
 spec:
   selector:
     app: app-producao-pod
-  #type: NodePort
-  type: LoadBalancer
+  type: NodePort
+  #type: LoadBalancer
   ports:
     - port: 80
       targetPort: 8080
