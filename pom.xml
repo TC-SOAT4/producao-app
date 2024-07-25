@@ -17,7 +17,7 @@
 		<java.version>17</java.version>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 		<sonar.organization>tc-soat4</sonar.organization>
-		<sonar.projectKey>TC-SOAT4_producao-app</sonar.projectKey>
+		<sonar.projectKey>TC-SOAT4_agenda-app</sonar.projectKey>
 	</properties>
 	<distributionManagement>
 		<repository>
