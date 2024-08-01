@@ -22,7 +22,7 @@ public class FilaPedidoListeneres {
 
     private final SalvarPedidoRecebidos salvarPedidoRecebidos;
 
-    @SqsListener("${aws.sqs.name}")
+    @SqsListener("${aws.sqs.in.producao.name}")
     public void receiveMessage(String json) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         ResumoPreparacaoPedidoDTO resumoPreparacaoPedidoDTO = objectMapper.readValue(json,

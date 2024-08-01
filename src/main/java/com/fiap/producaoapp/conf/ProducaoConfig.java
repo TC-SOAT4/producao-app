@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
 import com.fiap.producaoapp.application.pedido.clients.PedidoClient;
+import com.fiap.producaoapp.application.pedido.messages.PedidoMessageClient;
 import com.fiap.producaoapp.application.producao.gateways.PedidoProducaoGateway;
 import com.fiap.producaoapp.application.producao.usecases.FinalizarProducao;
 import com.fiap.producaoapp.application.producao.usecases.ListarPedidoParaProducao;
@@ -17,8 +18,8 @@ import com.fiap.producaoapp.infrastructure.producao.persistence.repository.Pedid
 public class ProducaoConfig {
 
     @Bean
-    FinalizarProducao finalizarProducao(PedidoProducaoGateway pedidoProducaoGateway, PedidoClient pedidoClient) {
-        return new FinalizarProducao(pedidoProducaoGateway, pedidoClient);
+    FinalizarProducao finalizarProducao(PedidoProducaoGateway pedidoProducaoGateway, PedidoMessageClient pedidoMessageClient) {
+        return new FinalizarProducao(pedidoProducaoGateway, pedidoMessageClient);
     }
 
     @Bean
@@ -39,6 +40,6 @@ public class ProducaoConfig {
     @Bean
     SalvarPedidoRecebidos salvarPedidoRecebidos(PedidoProducaoGateway pedidoProducaoGateway) {
         return new SalvarPedidoRecebidos(pedidoProducaoGateway);
-    }
+    }    
 
 }
