@@ -16,6 +16,7 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fiap.producaoapp.application.pedido.clients.PedidoClient;
+import com.fiap.producaoapp.application.pedido.messages.PedidoMessageClient;
 import com.fiap.producaoapp.application.producao.gateways.PedidoProducaoGateway;
 
 @SpringBootTest
@@ -26,6 +27,9 @@ class FinalizarProducaoTest {
 
     @MockBean
     private PedidoClient pedidoClient;
+
+    @MockBean
+    private PedidoMessageClient pedidoMessageClient;
 
     @Autowired
     private FinalizarProducao finalizarProducao;
@@ -38,6 +42,9 @@ class FinalizarProducaoTest {
     void testFinalizar() {
 
          doNothing().when(pedidoClient).atualizarStatus(anyInt(), anyString());
+         doNothing().when(pedidoMessageClient).enviarPedidoParaFinalizacao(anyInt(), anyString());
+
+
 
         var listaAntes = pedidoProducaoGateway.listarTodos();
 
