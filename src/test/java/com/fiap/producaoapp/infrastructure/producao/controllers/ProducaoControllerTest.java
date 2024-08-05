@@ -18,6 +18,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
 
 import com.fiap.producaoapp.application.pedido.clients.PedidoClient;
+import com.fiap.producaoapp.application.pedido.messages.PedidoMessageClient;
 
 import io.restassured.RestAssured;
 
@@ -33,6 +34,9 @@ class ProducaoControllerTest {
     @MockBean
     private PedidoClient pedidoClient;
 
+    @MockBean
+    private PedidoMessageClient pedidoMessageClient;
+
     @BeforeEach
     public void setup() {
         RestAssured.port = port;
@@ -43,6 +47,8 @@ class ProducaoControllerTest {
     void testFinalizar() {
 
         doNothing().when(pedidoClient).atualizarStatus(any(Integer.class), any(String.class));
+        doNothing().when(pedidoMessageClient).enviarPedidoParaFinalizacao(any(Integer.class), any(String.class));
+
 
         var idPedidoProducao = 1;
 
