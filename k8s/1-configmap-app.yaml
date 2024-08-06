@@ -7,7 +7,6 @@ data:
   SPRING_JPA_SHOW: "true"
   SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL: "true"
   URI_API_PEDIDO_ATUALIZAR_STATUS: http://svc-pedido-app/pedido-app/api/pedidos
-  AWS_SQS_NAME: lanchonete-producao-queue.fifo
   AWS_SQS_IN_PRODUCAO_NAME: lanchonete-producao-queue.fifo
   AWS_SQS_OUT_PEDIDO_STATUS_URI: https://sqs.us-east-1.amazonaws.com/354919765289/lanchonete-pedido-status-queue.fifo
   RECEBER_PEDIDO_PRODUCAO_ENABLED: "true"
