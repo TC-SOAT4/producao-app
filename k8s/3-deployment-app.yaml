@@ -56,11 +56,16 @@ spec:
                 configMapKeyRef:
                   name: configmap-producao-app
                   key: URI_API_PEDIDO_ATUALIZAR_STATUS
-            - name: AWS_SQS_NAME
+            - name: AWS_SQS_IN_PRODUCAO_NAME
               valueFrom:
                 configMapKeyRef:
                   name: configmap-producao-app
-                  key: AWS_SQS_NAME
+                  key: AWS_SQS_IN_PRODUCAO_NAME
+            - name: AWS_SQS_OUT_PEDIDO_STATUS_URI
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-producao-app
+                  key: AWS_SQS_OUT_PEDIDO_STATUS_URI
             - name: AWS_ACCESS_KEY_ID
               valueFrom:
                 configMapKeyRef:
