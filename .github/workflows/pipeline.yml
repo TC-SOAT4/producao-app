@@ -195,6 +195,7 @@ jobs:
         IMAGE_TAG: ${{ steps.commit.outputs.short }}
       run: |
          kubectl apply -f "k8s/1-configmap-app.yaml" && \
+         kubectl delete -f "k8s/3-deployment-app.yaml" && \
          kubectl apply -f "k8s/3-deployment-app.yaml" && \
          kubectl apply -f "k8s/4-svc-app.yaml"
 
