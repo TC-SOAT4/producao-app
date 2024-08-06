@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: configmap-producao-app
 data:
-  SPRING_DATASOURCE_URL: jdbc:mariadb://rds-fiap-tech-challenge.cbl891k9286k.us-east-1.rds.amazonaws.com:3306/producaodb
+  SPRING_DATASOURCE_URL: jdbc:mariadb://rds-fiap-tech-challenge.czedzxpic1u6.us-east-1.rds.amazonaws.com:3306/producaodb
   SPRING_JPA_SHOW: "true"
   SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL: "true"
   URI_API_PEDIDO_ATUALIZAR_STATUS: http://svc-pedido-app/pedido-app/api/pedidos
