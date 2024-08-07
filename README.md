@@ -75,8 +75,8 @@ k8s
    
 - application.properties
   ```
-   	aws.sqs.in.producao.name=lanchonete-producao-queue.fifo
-	aws.sqs.out.pedido.status.uri=https://exemplo.com/786426553713/lanchonete-pedido-status-queue.fifo
+  aws.sqs.in.producao.name=lanchonete-producao-queue.fifo
+  aws.sqs.out.pedido.status.uri=https://exemplo.com/786426553713/lanchonete-pedido-status-queue.fifo
   ```
 
 
