@@ -67,6 +67,18 @@ k8s
 
 ------------
 
+##### SQS
+
+- Necessário criar as filas a seguir e configurar no `application.properties`:
+	- lanchonete-pagamento-queue.fifo
+	- lanchonete-pedido-status-queue.fifo
+   
+- application.properties
+  ```
+   	aws.sqs.in.producao.name=lanchonete-producao-queue.fifo
+	aws.sqs.out.pedido.status.uri=https://exemplo.com/786426553713/lanchonete-pedido-status-queue.fifo
+  ```
+
 
 
 
