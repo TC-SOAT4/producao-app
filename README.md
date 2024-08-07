@@ -1,5 +1,5 @@
 
-### Tech Challenge - FASE 4
+### Tech Challenge - FASE 5
 <p align="center">
 Sistema desenvolvido como forma de avalição da terceira fase do curso de Pós graduação de Arquitetura de Software. Se trata de um sistema para controle de pedidos para uma lanchonete, a fim de otimizar a eficiência no atendimento aos clientes e gerenciar o estoque de maneira adequada.
 </p>
@@ -57,11 +57,13 @@ $ docker-compose up --build
 k8s
 ```
 - Para a aplicação serão criados:
-	-	1 Configmap 
-	-	1 Deployment com 2 replicas 
+	-	1 Secret 
+	-	1 Configmap
+ 	-	1 AWS 
+	-	1 Deployment
 	- 	1 Service
 	-	1 ServiceAccount
-	- 	HorizontalPodAutoscaler
+	- 	1 HorizontalPodAutoscaler
 
 ------------
 
